@@ -9,20 +9,16 @@ import { CartService } from '../../services/cart/cart.service';
   styleUrls: ['./products.component.css'],
   providers: [
     CartService
-  ]
+  ],
+  inputs: ['products']
 })
 export class ProductsComponent implements OnInit {
 
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService ) {}
 
-  ngOnInit() {
-      console.log( ' ProductsComponent ngOnInit ' );     
-      this.cartService.send( 'test' );     
-  }
-
-  send(){
+  send(item){
     console.log( 'ProductsComponent send');
-      this.cartService.send( 'test' );
+      this.cartService.send( item );
   }
 
 }

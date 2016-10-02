@@ -11,8 +11,9 @@ import { CartComponent } from './shared/cart/cart.component';
 import { SearchComponent } from './shared/search/search.component';
 
 
-// Services
-import { CartService } from './services/cart/cart.service';
+
+import { CartService } from './services/cart.service';
+import { IfProductLeftZeroPipe } from './pipes/if-product-left-zero.pipe';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { CartService } from './services/cart/cart.service';
     AppComponent,
     ProductsComponent,
     CartComponent,
-    SearchComponent
+    SearchComponent,
+    IfProductLeftZeroPipe
   ],
   imports: [
     BrowserModule,
