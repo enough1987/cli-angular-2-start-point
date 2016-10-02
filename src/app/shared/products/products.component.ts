@@ -13,12 +13,16 @@ import { CartService } from '../../services/cart/cart.service';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor(private cartService: CartService) { 
-      console.log( ' ProductsComponent consructor ' );
-      cartService.send( 'test' );
-  }
+  constructor(private cartService: CartService) {}
 
   ngOnInit() {
+      console.log( ' ProductsComponent ngOnInit ' );     
+      this.cartService.send( 'test' );     
+  }
+
+  send(){
+    console.log( 'ProductsComponent send');
+      this.cartService.send( 'test' );
   }
 
 }

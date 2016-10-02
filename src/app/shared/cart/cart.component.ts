@@ -15,12 +15,13 @@ export class CartComponent implements OnInit {
 
   constructor(private cartService: CartService) { 
       console.log( ' CartComponent consructor ' );
-      cartService.listener.subscribe( data => {
-        console.log(` we got - ${data} `);
-      });
   }
 
   ngOnInit() {
+      console.log( ' CartComponent ngOnInit ' );
+      this.cartService.get_listener().subscribe( data => {
+        console.log(` CartComponent got - ${data} `);
+      });    
   }
 
 }

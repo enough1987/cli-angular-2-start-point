@@ -1,18 +1,25 @@
 import { Injectable } from '@angular/core';
 import { Subject }    from 'rxjs/Subject';
-
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class CartService {
 
-  private _cartSource = new Subject();
+  static instance: CartService;
 
-  listener = this._cartSource.asObservable();
+  private subject = new Subject();
+
+  constructor() {
+    return CartService.instance = CartService.instance || this;
+  }
+
+  get_listener() {
+    return this.subject.asObservable();
+  }
 
   send(cart) {
-    this._cartSource.next(cart);
+    this.subject.next(cart);
   }
   
-
 
 }
