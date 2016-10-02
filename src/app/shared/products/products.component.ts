@@ -24,7 +24,6 @@ export class ProductsComponent implements OnInit {
   ngOnInit() {
       this.searchService.listener.subscribe( search => {
         this.searched_products = this.filter_products(search);
-        console.log(  this.searched_products );
       });    
   }
 

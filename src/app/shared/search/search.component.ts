@@ -14,10 +14,12 @@ import { SearchService } from '../../services/search.service';
 })
 export class SearchComponent {
 
+  public search = '';
+
   constructor( private searchService: SearchService ){}
 
-  send_search (search){
-       this.searchService.send(search);
+  send_search (){
+       this.searchService.send(this.search);
   };
 
 }
