@@ -16,49 +16,58 @@
 
     </div>
 
-<!--
+
     <div 
- [hidden]="!card_view" 
+ [hidden]="!cart_view" 
         class="card-big" >
 
 
-         <data-wr ng-show="!$ctrl.card.length"  class="empty-cart" >
+         <div
+ [hidden]="cart.length"  class="empty-cart" >
              Shopping cart is empty .
              <a 
-             ng-click="$ctrl.change_card_view()"
+ (click)="change_cart_view()"
              href="" > Close cart</a>
-         </data-wr>
+         </div>
 
-        <data-wr ng-show="$ctrl.card.length" >
+        <div 
+ [hidden]="!cart.length" >
 
         <button 
-        ng-click="$ctrl.change_card_view()" 
+ (click)="change_cart_view()" 
                 type="button" class="btn btn-default card-close-big">
              <span class="glyphicon glyphicon-remove"></span>
          </button>
+         
+         <br />
 
-        <div ng-repeat="product in $ctrl.card"
-             ng-if="product.left"
+        <div 
+ *ngFor=" let product of cart "
              class="row single-card-product-card" >
 
             <div class="col-xs-12 col-sm-4 product-img-wrapper">
-                <img ng-src="{{product.img}}" class="img-responsive product-img" />
+                <img 
+ [src]="product.img" class="img-responsive product-img" />
             </div>
             <div class="col-xs-12 col-sm-8">
-                <h3 class="product-title" > {{ product.title }} </h3>
+                <h3 class="product-title" > 
+{{ product.title }} </h3>
                 <p> 
-                <span class="product-price" > Price: {{ product.price }}</span>
-                <span class="product-shipping" > Shipping: {{ product.shipping }}</span>
+                <span class="product-price" > Price: 
+{{ product.price }}</span>
+                <span class="product-shipping" > Shipping: 
+{{ product.shipping }}</span>
                 </p>
             </div>
 
          </div>
 
-          <div class="product-total" > Total: {{  $ctrl.get_total() }} </div>
+          <div class="product-total" > Total: 
+{{ get_total() }} </div>
 
-        </data-wr>
+        </div>
 
-    </div>
--->
+   </div>
+
 
 </div>
