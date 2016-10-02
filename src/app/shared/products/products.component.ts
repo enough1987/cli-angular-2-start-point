@@ -22,8 +22,9 @@ export class ProductsComponent implements OnInit {
   constructor( private cartService: CartService, private searchService: SearchService ) {}
 
   ngOnInit() {
-      this.searchService.listener.subscribe( data => {
-        console.log(` CartComponent got - ${data} `);
+      this.searchService.listener.subscribe( search => {
+        this.searched_products = this.filter_products(search);
+        console.log(  this.searched_products );
       });    
   }
 

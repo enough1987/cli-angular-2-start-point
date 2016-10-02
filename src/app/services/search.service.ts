@@ -18,6 +18,7 @@ export class SearchService {
   }
 
   send(item) {
+    console.log(item);
     this._subject.next(item);
   }
 

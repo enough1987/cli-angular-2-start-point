@@ -2,7 +2,7 @@
 <div class="row" >
 
     <div class="col-xs-12 col-md-4 col-sm-6 single-product"
- *ngFor=" let product of products | ifProductLeftZero "
+ *ngFor=" let product of ( searched_products || products ) | ifProductLeftZero "
  [hidden]=" show_product_view(searched_products) "    
     >
 

@@ -1,3 +1,9 @@
-<p>
-  search works!
-</p>
+
+  <div class="col-xs-12 col-sm-3 col-sm-offset-3">
+    <input class="form-control" type="text" placeholder="text" 
+ #search />
+  </div>
+  <div class="col-xs-12 col-sm-2" >
+    <input class="col-xs-12 btn btn-default" type="button" value="search" 
+ (click)="send_search(search.value)" />
+   </div>
