@@ -13,13 +13,30 @@ import { CartService } from '../../services/cart.service';
 })
 export class CartComponent implements OnInit {
 
+  public cart_view = false;
+  public cart = this.cartService.get_cart();
+
   constructor( private cartService: CartService ) {}
 
   ngOnInit() {
       console.log( ' CartComponent ngOnInit ' );
-      this.cartService.listener.subscribe( data => {
-        console.log(` CartComponent got - ${data} `);
+      this.cartService.listener.subscribe( cart => {
+        this.cart = cart;
       });    
   }
+
+  change_cart_view(){
+       this.cart_view = !this.cart_view;
+       console.log( this.cart_view );
+  };
+
+  get_total(){
+      var total = 0;
+      this.cart.forEach(function(el){
+         if ( !el.price ) return false;
+         total += el.price;        
+      });
+      return total;
+  };
 
 }
