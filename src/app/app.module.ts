@@ -11,8 +11,8 @@ import { CartComponent } from './shared/cart/cart.component';
 import { SearchComponent } from './shared/search/search.component';
 
 
-
 import { CartService } from './services/cart.service';
+import { SearchService } from './services/search.service';
 import { IfProductLeftZeroPipe } from './pipes/if-product-left-zero.pipe';
 
 
@@ -30,7 +30,8 @@ import { IfProductLeftZeroPipe } from './pipes/if-product-left-zero.pipe';
     HttpModule
   ],
   providers: [
-    CartService
+    CartService,
+    SearchService
   ],
   bootstrap: [AppComponent]
 })

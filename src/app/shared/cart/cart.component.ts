@@ -1,19 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 
-// Services
+
 import { CartService } from '../../services/cart.service';
+import { SearchService } from '../../services/search.service';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css'],
   providers: [
-    CartService
+    CartService,
+    SearchService
   ]
 })
 export class CartComponent implements OnInit {
 
-  constructor(private cartService: CartService) { 
+  constructor( private cartService: CartService, private searchService: SearchService ) { 
       console.log( ' CartComponent consructor ' );
   }
 

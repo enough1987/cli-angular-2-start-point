@@ -2,14 +2,13 @@
 <div class="row" >
 
     <div class="col-xs-12 col-md-4 col-sm-6 single-product"
-*ngFor="let product of products | ifProductLeftZero"
-ng-if="product.left"
-ng-hide=" $ctrl.show_product_view($ctrl.searched_products) "    
+ *ngFor=" let product of products | ifProductLeftZero "
+ [hidden]=" show_product_view(searched_products) "    
     >
 
         <div class="col-xs-12 col-sm-4 height-100">
             <img 
-[src]="product.img" class="img-responsive product-img height-100" />
+ [src]="product.img" class="img-responsive product-img height-100" />
         </div>
         <div class="col-xs-12 col-sm-8">
             <p class="text-right padding-small test-small"> 
@@ -18,7 +17,7 @@ ng-hide=" $ctrl.show_product_view($ctrl.searched_products) "
             <h3 class="text-center" > {{ product.title }} </h3>
             <ul class="list-unstyled">
                 <li 
-*ngFor=" let description of product.description"
+ *ngFor=" let description of product.description"
                 >
                     {{ description }}
                 </li>
@@ -29,20 +28,21 @@ ng-hide=" $ctrl.show_product_view($ctrl.searched_products) "
             </p>
             <div class="text-center-sm" >
             <input 
-(click)="send(product)" 
+ (click)="send(product)" 
         class="btn btn-default btn-sm-center"       
         type="button" value="add to card" />
             </div>
         </div>
 
  </div>
-<!--
+
     <div class="no_result"
-   ng-show=" $ctrl.show_product_view($ctrl.searched_products) " >
+ [hidden]=" !show_product_view(searched_products) " >
          no result for your search
-         <input ng-click="$ctrl.clear_search()"
+         <input 
+ (click)="clear_search()"
             type="button" value="show all" class="btn btn-default" />
    </div>
--->
+
 </div>
 
