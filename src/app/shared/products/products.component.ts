@@ -28,7 +28,6 @@ export class ProductsComponent implements OnInit {
   }
 
   send(item){
-    console.log( 'ProductsComponent send');
       this.cartService.send( item );
   }
 

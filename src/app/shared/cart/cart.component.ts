@@ -19,7 +19,6 @@ export class CartComponent implements OnInit {
   constructor( private cartService: CartService ) {}
 
   ngOnInit() {
-      console.log( ' CartComponent ngOnInit ' );
       this.cartService.listener.subscribe( cart => {
         this.cart = cart;
       });    
@@ -27,7 +26,6 @@ export class CartComponent implements OnInit {
 
   change_cart_view(){
        this.cart_view = !this.cart_view;
-       console.log( this.cart_view );
   };
 
   get_total(){
